@@ -6,7 +6,6 @@ import { useEffect, useId, useState } from 'react';
 
 import { NavLink } from '@/components/ui';
 import { useAdminAccess } from '@/lib/hooks';
-import { NotificationBell } from './NotificationBell';
 import { useWallet } from '@/lib/wallet';
 
 import { ConnectButton } from './ConnectButton';
@@ -75,7 +74,6 @@ export function SiteHeader() {
         </div>
 
         <div className="ms-auto flex flex-wrap items-center justify-end gap-1.5 sm:gap-2">
-          <NotificationBell />
           <LowBandwidthToggle />
           <ThemeToggle />
           <NetworkBadge />

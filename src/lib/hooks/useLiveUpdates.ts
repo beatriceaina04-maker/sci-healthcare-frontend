@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { mutate } from 'ssr';
+import { mutate } from 'swr';
 
 import { config } from '../config';
 import { LOW_BANDWIDTH_POLL_INTERVAL_MS, useLowBandwidth } from '../low-bandwidth';
@@ -91,7 +91,7 @@ export function useLiveUpdates({
     const activePollInterval =
       (typeof window !== 'undefined' &&
         (window as unknown as { __SCI_POLL_INTERVAL_MS__: number })
-          .__SCI_POLL_INTERVAL_MS__)  ||
+          .__SCI_POLL_INTERVAL_MS__) ||
       (lowBandwidth ? LOW_BANDWIDTH_POLL_INTERVAL_MS : pollIntervalMs);
 
     const startPolling = () => {
